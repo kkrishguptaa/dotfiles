@@ -26,8 +26,7 @@
   environment.shellAliases = {
     nix-rebuild = ''
       nix flake update --flake ~/dotfiles/nix
-      nix build ~/dotfiles/nix#darwinConfigurations.mac.system
-      darwin-rebuild switch --flake ~/dotfiles/nix#darwinConfigurations.mac.system
+      darwin-rebuild boot --flake ~/dotfiles/nix#darwinConfigurations.mac.system
     '';
   };
 
