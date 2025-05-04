@@ -1,0 +1,45 @@
+romkatv/powerlevel10k
+
+zsh-users/zsh-completions path:src kind:fpath
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-history-substring-search
+
+
+# oh-my-zsh plugins
+getantidote/use-omz
+ohmyzsh/ohmyzsh
+ohmyzsh/ohmyzsh path:plugins/autojump
+ohmyzsh/ohmyzsh path:plugins/bgnotify
+ohmyzsh/ohmyzsh path:plugins/brew
+ohmyzsh/ohmyzsh path:plugins/bun
+ohmyzsh/ohmyzsh path:plugins/chezmoi
+ohmyzsh/ohmyzsh path:plugins/command-not-found
+ohmyzsh/ohmyzsh path:plugins/deno
+ohmyzsh/ohmyzsh path:plugins/docker-compose
+ohmyzsh/ohmyzsh path:plugins/docker
+ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/gh
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/git-auto-fetch
+ohmyzsh/ohmyzsh path:plugins/git-extras
+ohmyzsh/ohmyzsh path:plugins/git-lfs
+ohmyzsh/ohmyzsh path:plugins/git
+ohmyzsh/ohmyzsh path:plugins/golang
+ohmyzsh/ohmyzsh path:plugins/gpg-agent
+ohmyzsh/ohmyzsh path:plugins/macos
+ohmyzsh/ohmyzsh path:plugins/npm
+ohmyzsh/ohmyzsh path:plugins/pipenv
+ohmyzsh/ohmyzsh path:plugins/pip
+ohmyzsh/ohmyzsh path:plugins/pyenv
+ohmyzsh/ohmyzsh path:plugins/pylint
+ohmyzsh/ohmyzsh path:plugins/python
+ohmyzsh/ohmyzsh path:plugins/rust
+ohmyzsh/ohmyzsh path:plugins/ssh-agent
+ohmyzsh/ohmyzsh path:plugins/ssh
+ohmyzsh/ohmyzsh path:plugins/swiftpm
+ohmyzsh/ohmyzsh path:plugins/volta
+ohmyzsh/ohmyzsh path:plugins/vscode
+ohmyzsh/ohmyzsh path:plugins/xcode
+ohmyzsh/ohmyzsh path:plugins/yarn
+ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd

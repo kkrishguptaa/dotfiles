@@ -1,0 +1,12 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+brew bundle --file={{ .chezmoi.sourceDir }}/dot_brewfile
+brew bundle cleanup --file={{ .chezmoi.sourceDir }}/dot_brewfile --force
+
+{{ else if eq .chezmoi.os "linux" -}}
+
+# TODO: Add Linux installation steps
+
+{{ end -}}

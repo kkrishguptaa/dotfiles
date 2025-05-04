@@ -1,0 +1,40 @@
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv hook zsh)"
+
+# Antidote plugin manager
+
+[[ -f ~/.zsh_plugins.txt ]] || touch ~/.zsh_plugins.txt
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+# Lazy-load antidote from its functions directory.
+fpath=(/opt/homebrew/share/antidote/functions $fpath)
+
+{{ else if eq .chezmoi.os "linux" -}}
+# TODO: MAKE THIS WORK
+{{ end -}}
+
+autoload -Uz antidote
+
+if [[ ! ~/.zsh_plugins.zsh -nt ~/.zsh_plugins.txt ]]; then
+  antidote bundle <~/.zsh_plugins.txt >|~/.zsh_plugins.zsh
+fi
+
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true
+
+# Load plugins
+source ~/.zsh_plugins.zsh
+
+# Load Powerlevel10k theme.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Docker completion
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
