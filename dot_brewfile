@@ -17,7 +17,6 @@ brew "fd"
 brew "fzf"
 brew "htop"
 brew "jq"
-brew "openssh"
 brew "wget"
 
 brew "vim"
