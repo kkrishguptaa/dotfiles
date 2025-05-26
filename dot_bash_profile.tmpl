@@ -26,9 +26,9 @@ eval "$(rbenv init -)"
 
 export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
-echo 'eval "$(goenv init -)"' >> ~/.bash_profile
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
+eval "$(goenv init -)"
 
 # volta
 
