@@ -26,9 +26,6 @@ if [[ ! ~/.zsh_plugins.zsh -nt ~/.zsh_plugins.txt ]]; then
   antidote bundle <~/.zsh_plugins.txt >|~/.zsh_plugins.zsh
 fi
 
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-
 # Load plugins
 source ~/.zsh_plugins.zsh
 
@@ -39,6 +36,13 @@ source ~/.zsh_plugins.zsh
 zstyle ':completion:*:*:docker:*' option-stacking yes
 zstyle ':completion:*:*:docker-*:*' option-stacking yes
 
+# Start the SSH agent if it's not running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+  eval $(ssh-agent -s)
+fi
+
+# pyenv
+
 {{ if eq .chezmoi.os "darwin" -}}
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 {{ end -}}
@@ -47,8 +51,28 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Start the SSH agent if it's not running
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-  eval $(ssh-agent -s)
-fi
+# rbenv
+
+FPATH=~/.rbenv/completions:"$FPATH"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+# goenv
+
+export GOENV_ROOT="$HOME/.goenv"
+export PATH="$GOENV_ROOT/bin:$PATH"
+echo 'eval "$(goenv init -)"' >> ~/.bash_profile
+export PATH="$GOROOT/bin:$PATH"
+export PATH="$PATH:$GOPATH/bin"
+
+# volta
+
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# completions
+
+autoload -U compinit
+compinit
 

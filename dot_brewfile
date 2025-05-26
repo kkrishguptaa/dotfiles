@@ -41,6 +41,7 @@ brew "gnupg"
 brew "wakatime-cli"
 
 brew "volta"
+brew "rbenv"
 brew "goenv"
 brew "pyenv"
 brew "rustup"

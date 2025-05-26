@@ -1,3 +1,4 @@
+{{ if eq .chezmoi.os "darwin" -}}
 if [[ -s $HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh ]]; then
   . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 fi
@@ -10,3 +11,5 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 
   source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
 fi
+{{ end -}}
+
