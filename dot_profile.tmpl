@@ -1,9 +1,5 @@
-if [[ -f ~/.bashrc ]]; then
-  source ~/.bashrc
-fi
-
 # Start the SSH agent if it's not running
-if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+if ! pgrep -u "$USER" ssh-agent >/dev/null; then
   eval $(ssh-agent -s)
 fi
 
