@@ -41,9 +41,11 @@ if ! pgrep -u "$USER" ssh-agent > /dev/null; then
   eval $(ssh-agent -s)
 fi
 
-FPATH=~/.rbenv/completions:"$FPATH"
-
+# config not in .profile
 [ -f ~/.profile ] && source ~/.profile
+eval "$(uv generate-shell-completion zsh)"
+FPATH=~/.rbenv/completions:"$FPATH"
+eval "$(rbenv init - zsh)"
 
 # completions
 
