@@ -51,6 +51,8 @@ cask "raycast"
 cask "battery"
 cask "jordanbaird-ice"
 cask "shottr"
+cask "alt-tab"
+cask "amethyst"
 
 cask "iina"
 cask "google-chrome"

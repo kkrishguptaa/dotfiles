@@ -1,0 +1,40 @@
+#!/bin/bash
+
+osascript -e 'tell application "System Preferences" to quit'
+
+# Use touch id for sudo
+
+TOUCHID_SUDO_CONFIG="auth       sufficient     pam_tid.so"
+
+sudo cp /etc/pam.d/sudo /etc/pam.d/sudo.bak.$(date +%Y%m%d%H%M%S)
+
+if ! grep -qF "$TOUCHID_SUDO_CONFIG" /etc/pam.d/sudo; then
+  sudo sed -i '' "1i\\
+$TOUCHID_SUDO_CONFIG
+" /etc/pam.d/sudo
+fi
+
+# systemsetup
+
+sudo systemsetup -setallowpowerbuttontosleepcomputer off
+sudo systemsetup -setcomputersleep Never
+sudo systemsetup -setrestartfreeze on
+
+# pmset
+
+sudo pmset -a sleep 0
+sudo pmset -a sleep 0
+sudo pmset -a powernap 1
+sudo pmset -a lidwake 1
+sudo pmset -b halfdim 1
+
+# scutil
+
+sudo scutil --set ComputerName "{{ .apple.computername }}"
+sudo scutil --set HostName "{{ .apple.hostname }}"
+sudo scutil --set LocalHostName "{{ .apple.localhostname }}"
+
+# networksetup
+
+networksetup -setdnsservers Wi-Fi 1.1.1.2 1.0.0.2
+
