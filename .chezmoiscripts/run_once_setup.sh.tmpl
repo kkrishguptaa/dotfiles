@@ -14,12 +14,6 @@ $TOUCHID_SUDO_CONFIG
 " /etc/pam.d/sudo
 fi
 
-# systemsetup
-
-sudo systemsetup -setallowpowerbuttontosleepcomputer off
-sudo systemsetup -setcomputersleep Never
-sudo systemsetup -setrestartfreeze on
-
 # pmset
 
 sudo pmset -a sleep 0
@@ -38,3 +32,8 @@ sudo scutil --set LocalHostName "{{ .apple.localhostname }}"
 
 networksetup -setdnsservers Wi-Fi 1.1.1.2 1.0.0.2
 
+# defaults
+
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# TODO: Add more defaults

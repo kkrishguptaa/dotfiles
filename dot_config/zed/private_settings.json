@@ -1,0 +1,126 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "base_keymap": "VSCode",
+  "buffer_font_family": "CaskaydiaCove Nerd Font",
+  "buffer_font_fallbacks": ["Monaspace Neon Var", "Zed Plex Mono"],
+  "buffer_line_height": "standard",
+  "theme": {
+    "mode": "system",
+    "dark": "One Dark Pro",
+    "light": "One Light"
+  },
+  "icon_theme": {
+    "dark": "VSCode Icons (Dark)",
+    "light": "VSCode Icons (Light)"
+  },
+  "ui_font_family": "Monaspace Neon Var",
+  "ui_font_fallbacks": ["Zed Plex Sans"],
+  "project_panel": {
+    "entry_spacing": "standard"
+  },
+  "minimap": {
+    "show": "auto"
+  },
+  "tab_bar": {
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true,
+    "show_diagnostics": "all"
+  },
+  "toolbar": {
+    "code_actions": true
+  },
+  "indent_guides": {
+    "background_coloring": "indent_aware"
+  },
+  "enable_preview_from_code_navigation": true,
+  "inlay_hints": {
+    "enabled": true,
+    "show_background": true,
+    "toggle_on_modifiers_press": {
+      "function": true
+    }
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "terminal": {
+    "line_height": "standard",
+    "toolbar": {
+      "breadcrumbs": false
+    }
+  },
+  "use_smartcase_search": true,
+  "show_whitespaces": "selection",
+  "agent": {
+    "version": "2",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "GPT-4.1"
+    }
+  },
+  "load_direnv": "direct",
+  "soft_wrap": "editor_width",
+  "tab_size": 2,
+  "lsp": {
+    "vue": {
+      "initialization_options": {
+        "typescript": {
+          "tsdk": ".yarn/sdks/typescript/lib"
+        }
+      }
+    }
+  },
+  "auto_install_extension": {
+    "astro": true,
+    "basher": true,
+    "codebook": true,
+    "deno": true,
+    "docker-compose": true,
+    "dockerfile": true,
+    "graphql": true,
+    "one-dark-pro": true,
+    "prisma": true,
+    "svelte": true,
+    "swift": true,
+    "toml": true,
+    "vscode-icons": true,
+    "vue": true,
+    "wakatime": true
+  },
+  "languages": {
+    "Shell Script": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": ["--filename", "{buffer_path}", "--indent", "2"]
+        }
+      }
+    },
+    "TypeScript": {
+      "language_servers": ["!typescript-language-server", "!vtsls"]
+    }
+  },
+  "calls": {
+    "mute_on_join": true,
+    "share_on_join": false
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}

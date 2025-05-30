@@ -1,7 +1,7 @@
 apple:
   computername: "Krish's MacBook"
   hostname: "kkrishguptaa"
-  localhostname: "kkrishguptaa.local"
+  localhostname: "kkrishguptaa"
 
 git:
   config:
