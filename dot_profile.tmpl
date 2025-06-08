@@ -20,3 +20,11 @@ eval "$(goenv init -)"
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
+# phpbrew
+
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+
+# composer
+
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
