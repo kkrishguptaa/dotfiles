@@ -60,13 +60,9 @@ brew "libzip"
 brew "libxml2"
 brew "php"
 
-cask "raycast"
-
 cask "battery"
-cask "jordanbaird-ice"
 cask "shottr"
 cask "alt-tab"
-cask "keycastr"
 cask "protonvpn"
 cask "iina"
 cask "imageoptim"

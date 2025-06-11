@@ -9,3 +9,14 @@ brew bundle --file={{ .chezmoi.sourceDir }}/dot_brewfile
 # TODO: Add Linux installation steps
 
 {{ end -}}
+
+goenv install 1.24.2 -s
+goenv global 1.24.2
+goenv rehash
+
+volta install node@22
+volta install yarn@1
+volta install npm-upgrade
+volta install prettier
+
+go install github.com/hackclub/terminal-wakatime/cmd/terminal-wakatime@latest
