@@ -1,6 +1,12 @@
+# LLVM
+
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
 # Start the SSH agent if it's not running
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-  eval $(ssh-agent -s)
+  eval $(ssh-agent -s) > /dev/null
 fi
 
 # rbenv
@@ -28,6 +34,10 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 # composer
 
 export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+
+# rustup
+
+export PATH="$(brew --prefix rustup)/bin:$PATH"
 
 # wakatime
 
