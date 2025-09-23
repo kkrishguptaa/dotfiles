@@ -6,13 +6,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
 # Start the SSH agent if it's not running
 if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-  eval $(ssh-agent -s) > /dev/null
+  eval $(ssh-agent -s -q) > /dev/null
 fi
-
-# rbenv
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # goenv
 
@@ -27,18 +22,6 @@ eval "$(goenv init -)"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# phpbrew
-
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-
-# composer
-
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-
 # rustup
 
 export PATH="$(brew --prefix rustup)/bin:$PATH"
-
-# wakatime
-
-eval "$(terminal-wakatime init)"
