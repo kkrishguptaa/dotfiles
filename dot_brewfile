@@ -1,5 +1,4 @@
 tap "homebrew/core"
-tap "bazelbuild/tap"
 
 brew "chezmoi"
 brew "mas"
@@ -12,10 +11,6 @@ brew "zsh"
 brew "antidote"
 
 brew "autojump"
-brew "bat"
-brew "ripgrep"
-brew "bat-extras"
-brew "curl"
 brew "fd"
 brew "fzf"
 brew "htop"
@@ -36,67 +31,26 @@ brew "git-lfs"
 brew "gh"
 brew "direnv"
 brew "docker"
-brew "docker-buildx"
-brew "docker-completion"
-brew "docker-compose"
-brew "docker-credential-helper"
 brew "gnupg"
-brew "wakatime-cli"
 brew "vhs"
-cask "slack-cli"
 
 brew "volta"
-brew "rbenv"
 brew "goenv"
 brew "uv"
 brew "rustup"
-brew "composer"
-brew "phpbrew"
-
-# phpbrew requirements
-brew "autoconf"
-brew "pkg-config"
-brew "bzip2"
-brew "zlib"
-brew "openssl@3"
-brew "oniguruma"
-brew "readline"
-brew "libzip"
-brew "libxml2"
-brew "php"
-
-# C/C++
-brew "llvm"
-brew "cmake"
-brew "ninja"
-brew "emscripten"
-brew "bazel"
-brew "buildifier"
 
 cask "battery"
 cask "shottr"
-cask "alt-tab"
-cask "protonvpn"
-cask "iina"
 cask "imageoptim"
-cask "grammarly-desktop"
+cask "lastfm"
 
-cask "google-chrome"
-cask "discord"
-cask "signal"
-cask "zoom"
-cask "chatgpt"
 cask "visual-studio-code"
-cask "zed"
 cask "ghostty"
 cask "figma"
-cask "obsidian"
 cask "orbstack"
-cask "roblox"
 cask "wakatime"
-cask "blender"
-cask "webtorrent"
-cask "krita"
+cask "zoom"
+cask "notion-calendar"
 
 cask "font-monaspace"
 cask "font-monaspace-nerd-font"
@@ -110,11 +64,9 @@ mas "Xcode", id: 497799835
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
+mas "Microsoft Outlook", id: 985367838
 
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Telegram", id: 747648890
-mas "WhatsApp", id: 310633997
-
-mas "Slack for Desktop", id: 803453959
