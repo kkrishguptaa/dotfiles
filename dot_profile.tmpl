@@ -1,12 +1,6 @@
-# LLVM
-
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
 # Start the SSH agent if it's not running
-if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-  eval $(ssh-agent -s -q) > /dev/null
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s -q)" >/dev/null
 fi
 
 # goenv
@@ -15,7 +9,10 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
-eval "$(goenv init -)"
+
+if command -v goenv >/dev/null 2>&1; then
+  eval "$(goenv init -)" >/dev/null
+fi
 
 # volta
 
@@ -24,4 +21,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 
 # rustup
 
-export PATH="$(brew --prefix rustup)/bin:$PATH"
+RUSTUP_BIN="${RUSTUP_BIN:-$(brew --prefix rustup)/bin}"
+export PATH="$RUSTUP_BIN:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
+typeset -U PATH

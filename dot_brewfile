@@ -3,8 +3,6 @@ tap "homebrew/core"
 brew "chezmoi"
 brew "mas"
 
-brew "bash"
-brew "bash-completion@2"
 brew "bash-git-prompt"
 
 brew "zsh"
@@ -17,19 +15,11 @@ brew "htop"
 brew "jq"
 brew "wget"
 
-brew "vim"
 brew "neovim"
-
-brew "bash-language-server"
-brew "shellcheck"
-brew "shfmt"
 
 brew "git"
 brew "git-delta"
-brew "git-extras"
-brew "git-lfs"
 brew "gh"
-brew "direnv"
 brew "docker"
 brew "gnupg"
 brew "vhs"
