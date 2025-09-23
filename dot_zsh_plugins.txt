@@ -1,6 +1,2 @@
-# Prompt
-sindresorhus/pure kind:fpath
-
-# Quality of life
 zsh-users/zsh-completions path:src kind:fpath
 zsh-users/zsh-autosuggestions

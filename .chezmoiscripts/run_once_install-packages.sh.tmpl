@@ -2,7 +2,7 @@
 
 {{ if eq .chezmoi.os "darwin" -}}
 
-brew bundle --file={{ .chezmoi.sourceDir }}/dot_brewfile
+brew bundle --cleanup --file={{ .chezmoi.sourceDir }}/dot_brewfile
 
 {{ else if eq .chezmoi.os "linux" -}}
 

@@ -1,12 +1,9 @@
-tap "homebrew/core"
-
 brew "chezmoi"
 brew "mas"
 
-brew "bash-git-prompt"
-
 brew "zsh"
 brew "antidote"
+brew "pure"
 
 brew "autojump"
 brew "fd"
@@ -33,22 +30,26 @@ cask "battery"
 cask "shottr"
 cask "imageoptim"
 cask "lastfm"
+cask "wakatime"
 
+cask "notion-calendar"
+cask "zoom"
+
+cask "zed"
 cask "visual-studio-code"
 cask "ghostty"
+
 cask "figma"
+
 cask "orbstack"
-cask "wakatime"
-cask "zoom"
-cask "notion-calendar"
 
 cask "font-monaspace"
-cask "font-monaspace-nerd-font"
+cask "font-monaspice-nerd-font"
 cask "font-cascadia-code"
 cask "font-caskaydia-cove-nerd-font"
 
 mas "Shareful", id: 1522267256
-
+mas "AdGuard for Safari", id: 1440147259
 mas "Xcode", id: 497799835
 
 mas "Microsoft Excel", id: 462058435
@@ -59,4 +60,5 @@ mas "Microsoft Outlook", id: 985367838
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+
 mas "Telegram", id: 747648890

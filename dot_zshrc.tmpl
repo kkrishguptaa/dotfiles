@@ -7,6 +7,9 @@
 # Lazy-load antidote from its functions directory.
 fpath=(/opt/homebrew/share/antidote/functions $fpath)
 
+# Load pure prompt
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 {{ else if eq .chezmoi.os "linux" -}}
 # TODO: MAKE THIS WORK
 {{ end -}}
