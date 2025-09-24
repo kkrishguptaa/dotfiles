@@ -1,2 +1,5 @@
 zsh-users/zsh-completions path:src kind:fpath
 zsh-users/zsh-autosuggestions
+fdellwing/zsh-bat
+MichaelAquilina/zsh-you-should-use
+zsh-users/zsh-syntax-highlighting

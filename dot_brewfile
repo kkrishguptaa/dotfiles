@@ -5,7 +5,7 @@ brew "zsh"
 brew "antidote"
 brew "pure"
 
-brew "autojump"
+brew "bat"
 brew "fd"
 brew "fzf"
 brew "htop"
@@ -33,15 +33,24 @@ cask "lastfm"
 cask "wakatime"
 
 cask "notion-calendar"
+
 cask "zoom"
 
-cask "zed"
+cask "google-chrome"
+
 cask "visual-studio-code"
+cask "zed"
+cask "pulsar"
+
 cask "ghostty"
+
+cask "bruno"
 
 cask "figma"
 
 cask "orbstack"
+
+cask "psharma04/dorion"
 
 cask "font-monaspace"
 cask "font-monaspice-nerd-font"
@@ -61,4 +70,5 @@ mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 
+mas "Slack for Desktop", id: 803453959
 mas "Telegram", id: 747648890
