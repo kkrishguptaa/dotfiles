@@ -11,6 +11,7 @@ brew "fzf"
 brew "htop"
 brew "jq"
 brew "wget"
+brew "btop"
 
 brew "tokei"
 brew "neovim"
