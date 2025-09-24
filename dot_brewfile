@@ -50,7 +50,8 @@ cask "figma"
 
 cask "orbstack"
 
-cask "psharma04/dorion"
+tap "psharma04/dorion"
+cask "dorion"
 
 cask "font-monaspace"
 cask "font-monaspice-nerd-font"
