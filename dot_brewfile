@@ -12,6 +12,11 @@ brew "htop"
 brew "jq"
 brew "wget"
 brew "btop"
+brew "imagemagick"
+brew "ossp-uuid"
+brew "cloudflared"
+brew "cloudflare-wrangler"
+brew "mkcert"
 
 brew "tokei"
 brew "neovim"
@@ -35,26 +40,32 @@ cask "lastfm"
 cask "wakatime"
 cask "protonvpn"
 
+cask "notion"
 cask "notion-calendar"
 
 cask "zoom"
+cask "obs"
 
 cask "google-chrome"
 
 cask "visual-studio-code"
 cask "zed"
 cask "pulsar"
+cask "sublime-text"
+cask "godot"
 
 cask "ghostty"
 
 cask "bruno"
 
 cask "figma"
+cask "spotify"
+
+cask "steam"
+cask "itch"
+cask "discord"
 
 cask "orbstack"
-
-tap "psharma04/dorion"
-cask "dorion"
 
 cask "font-monaspace"
 cask "font-monaspice-nerd-font"
