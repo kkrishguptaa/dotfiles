@@ -39,6 +39,13 @@ cask "imageoptim"
 cask "lastfm"
 cask "wakatime"
 cask "protonvpn"
+cask "linearmouse"
+cask "jordanbaird-ice"
+cask "hazeover"
+cask "raycast"
+cask "grammarly-desktop"
+cask "upscayl"
+cask "vlc"
 
 cask "notion"
 cask "notion-calendar"
@@ -47,6 +54,12 @@ cask "zoom"
 cask "obs"
 
 cask "google-chrome"
+cask "arc"
+cask "chatgpt-atlas"
+cask "zen"
+cask "helium-browser"
+
+cask "capcut"
 
 cask "visual-studio-code"
 cask "zed"
@@ -57,6 +70,7 @@ cask "godot"
 cask "ghostty"
 
 cask "bruno"
+cask "anki"
 
 cask "figma"
 cask "spotify"
@@ -73,13 +87,16 @@ cask "font-cascadia-code"
 cask "font-caskaydia-cove-nerd-font"
 
 mas "Shareful", id: 1522267256
-mas "AdGuard for Safari", id: 1440147259
 mas "Xcode", id: 497799835
+mas "Gifski", id: 1351639930
 
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Outlook", id: 985367838
+
+mas "iMovie", id: 408981434
+mas "DaVinci Resolve", id: 571213070
 
 mas "Keynote", id: 409183694
 mas "Numbers", id: 409203825
