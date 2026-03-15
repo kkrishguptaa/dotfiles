@@ -1,12 +1,7 @@
 # Start the SSH agent if it's not running
-if ! pgrep -u "$USER" ssh-agent >/dev/null; then
-  eval $(ssh-agent -s)
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s -q)" >/dev/null
 fi
-
-# rbenv
-
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 
 # goenv
 
@@ -14,17 +9,23 @@ export GOENV_ROOT="$HOME/.goenv"
 export PATH="$GOENV_ROOT/bin:$PATH"
 export PATH="$GOROOT/bin:$PATH"
 export PATH="$PATH:$GOPATH/bin"
-eval "$(goenv init -)"
+
+if command -v goenv >/dev/null 2>&1; then
+  eval "$(goenv init -)" >/dev/null
+fi
 
 # volta
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
-# phpbrew
+# rustup
 
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
+RUSTUP_BIN="${RUSTUP_BIN:-$(brew --prefix rustup)/bin}"
+export PATH="$RUSTUP_BIN:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
-# composer
+# itchio
+export PATH="$PATH:$HOME/Library/Application Support/itch/apps/butler"
 
-export PATH="$HOME/.config/.composer/vendor/bin:$PATH"
+typeset -U PATH

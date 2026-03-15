@@ -1,3 +1,47 @@
 [user]
 	email = {{ .git.config.user.email }}
 	name = {{ .git.config.user.name }}
+  signingKey = ~/.ssh/id_ed25519
+
+[core]
+	pager = delta
+  excludesFile = ~/.gitignore
+
+[color]
+  ui = auto
+
+[init]
+	defaultBranch = main
+
+[pull]
+  rebase = true
+
+[push]
+	autoSetupRemote = true
+
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+
+[commit]
+  gpgSign = true
+
+[tag]
+  gpgSign = true
+
+[gpg]
+  format = ssh
+
+[status]
+  showUntrackedFiles = all
+
+[alias]
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  lg = log --oneline --graph --decorate --all
+  undo = reset --soft HEAD~1
+  last = log -1 HEAD
+  unstage = reset HEAD --

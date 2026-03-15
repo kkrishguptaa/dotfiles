@@ -1,6 +1,11 @@
+
+Include ~/.orbstack/ssh/config
+
 Host *
   AddKeysToAgent yes
+
 {{ if eq .chezmoi.os "darwin" }}
   UseKeychain yes
 {{ end }}
+
   IdentityFile ~/.ssh/id_ed25519
