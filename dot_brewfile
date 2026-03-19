@@ -5,21 +5,11 @@ brew "zsh"
 brew "antidote"
 brew "pure"
 
-brew "bat"
 brew "fd"
 brew "fzf"
-brew "htop"
-brew "jq"
-brew "wget"
-brew "btop"
 brew "imagemagick"
-brew "ossp-uuid"
 brew "cloudflared"
 brew "cloudflare-wrangler"
-brew "mkcert"
-
-brew "tokei"
-brew "neovim"
 
 brew "git"
 brew "git-delta"
@@ -33,58 +23,35 @@ brew "goenv"
 brew "uv"
 brew "rustup"
 
-cask "battery"
 cask "shottr"
 cask "imageoptim"
-cask "lastfm"
 cask "wakatime"
 cask "protonvpn"
 cask "linearmouse"
-cask "jordanbaird-ice"
-cask "hazeover"
 cask "raycast"
-cask "grammarly-desktop"
+
+cask "zoom"
+cask "obs"
 cask "upscayl"
-cask "vlc"
+cask "mpv"
 
 cask "notion"
 cask "notion-calendar"
 
-cask "zoom"
-cask "obs"
-
 cask "google-chrome"
-cask "arc"
 cask "chatgpt-atlas"
-cask "zen"
-cask "helium-browser"
-
-cask "capcut"
 
 cask "visual-studio-code"
 cask "zed"
-cask "pulsar"
-cask "sublime-text"
-cask "godot"
 
-cask "ghostty"
-
-cask "bruno"
-cask "anki"
+tap "manaflow-ai/cmux"
+cask "cmux"
 
 cask "figma"
-cask "spotify"
-
-cask "steam"
-cask "itch"
-cask "discord"
 
 cask "orbstack"
 
 cask "font-monaspace"
-cask "font-monaspice-nerd-font"
-cask "font-cascadia-code"
-cask "font-caskaydia-cove-nerd-font"
 
 mas "Shareful", id: 1522267256
 mas "Xcode", id: 497799835
@@ -95,12 +62,6 @@ mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Outlook", id: 985367838
 
-mas "iMovie", id: 408981434
 mas "DaVinci Resolve", id: 571213070
 
-mas "Keynote", id: 409183694
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-
-mas "Slack for Desktop", id: 803453959
 mas "Telegram", id: 747648890
