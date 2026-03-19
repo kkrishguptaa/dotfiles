@@ -12,7 +12,6 @@ brew "cloudflared"
 brew "cloudflare-wrangler"
 
 brew "git"
-brew "git-delta"
 brew "gh"
 brew "docker"
 brew "gnupg"
@@ -33,7 +32,7 @@ cask "raycast"
 cask "zoom"
 cask "obs"
 cask "upscayl"
-cask "mpv"
+cask "stolendata-mpv"
 
 cask "notion"
 cask "notion-calendar"
@@ -43,13 +42,19 @@ cask "chatgpt-atlas"
 
 cask "visual-studio-code"
 cask "zed"
-
-tap "manaflow-ai/cmux"
-cask "cmux"
+brew "manaflow-ai/cmux/cmux"
 
 cask "figma"
 
 cask "orbstack"
+
+brew "ollama"
+cask "ollama-app"
+cask "copilot-cli"
+cask "codex"
+brew "anomalyco/tap/opencode"
+cask "antigravity"
+cask "t3-code"
 
 cask "font-monaspace"
 
