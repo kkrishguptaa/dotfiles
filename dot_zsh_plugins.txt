@@ -1,8 +1,5 @@
 zsh-users/zsh-completions path:src kind:fpath
-zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 
 agkozak/zsh-z
 MichaelAquilina/zsh-you-should-use
-
-zdharma/fast-syntax-highlighting

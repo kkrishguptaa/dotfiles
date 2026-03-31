@@ -1,2 +1,8 @@
 .ssh/id_*
 !*.pub
+
+# github stuff
+
+README.md
+LICENSE
+renovate.json

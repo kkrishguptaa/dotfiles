@@ -8,13 +8,17 @@ brew "pure"
 brew "fd"
 brew "fzf"
 brew "imagemagick"
+
 brew "cloudflared"
 brew "cloudflare-wrangler"
 
 brew "git"
 brew "gh"
-brew "docker"
+brew "delta"
 brew "gnupg"
+
+brew "docker"
+
 brew "vhs"
 
 brew "volta"
@@ -24,15 +28,14 @@ brew "rustup"
 
 cask "shottr"
 cask "imageoptim"
-cask "wakatime"
 cask "protonvpn"
 cask "linearmouse"
 cask "raycast"
+cask "upscayl"
+cask "stolendata-mpv"
 
 cask "zoom"
 cask "obs"
-cask "upscayl"
-cask "stolendata-mpv"
 
 cask "notion"
 cask "notion-calendar"
@@ -42,19 +45,24 @@ cask "chatgpt-atlas"
 
 cask "visual-studio-code"
 cask "zed"
-brew "manaflow-ai/cmux/cmux"
+
+tap "manaflow-ai/cmux"
+cask "cmux"
 
 cask "figma"
 
 cask "orbstack"
 
-brew "ollama"
-cask "ollama-app"
 cask "copilot-cli"
-cask "codex"
 brew "anomalyco/tap/opencode"
-cask "antigravity"
+cask "codex"
+cask "coderabbit"
+
 cask "t3-code"
+cask "cursor"
+
+cask "chatgpt"
+cask "claude"
 
 cask "font-monaspace"
 

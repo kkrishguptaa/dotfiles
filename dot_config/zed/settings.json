@@ -1,0 +1,36 @@
+{
+  "agent_servers": {
+    "opencode": {
+      "type": "registry",
+    },
+    "github-copilot-cli": {
+      "type": "registry",
+    },
+    "codex-acp": {
+      "favorite_config_option_values": {
+        "model": ["gpt-5.3-codex"],
+        "mode": ["auto"],
+      },
+      "type": "registry",
+    },
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "favorite_models": [],
+    "model_parameters": [],
+    "enable_feedback": false,
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "VSCode Icons for Zed (Dark Official Icons)",
+    "dark": "VSCode Icons for Zed (Light NestJS)",
+  },
+  "theme": {
+    "mode": "system",
+    "light": "Rosé Pine Dawn",
+    "dark": "Rosé Pine",
+  },
+  "auto_install_extensions": {
+    "wakatime": true,
+  },
+}

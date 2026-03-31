@@ -1,0 +1,28 @@
+# gstack configuration — edit freely, changes take effect on next skill run.
+# Docs: https://github.com/garrytan/gstack
+#
+# ─── Behavior ────────────────────────────────────────────────────────
+proactive: true # Auto-invoke skills when your request matches one.
+#                           # Set to false to only run skills you type explicitly.
+#
+# routing_declined: false   # Set to true to skip the CLAUDE.md routing injection
+#                           # prompt. Set back to false to be asked again.
+#
+# ─── Telemetry ───────────────────────────────────────────────────────
+telemetry: off # off | anonymous | community
+#                           #   off       — no data sent, no local analytics
+#                           #   anonymous — counter only, no device ID
+#                           #   community — usage data + stable device ID
+#
+# ─── Updates ─────────────────────────────────────────────────────────
+auto_upgrade: true # true = silently upgrade on session start
+update_check: true # false = suppress version check notifications
+#
+# ─── Skill naming ────────────────────────────────────────────────────
+skill_prefix: false # true = namespace skills as /gstack-qa, /gstack-ship
+#                           # false = short names /qa, /ship
+#
+# ─── Advanced ────────────────────────────────────────────────────────
+codex_reviews: enabled # disabled = skip Codex adversarial reviews in /ship
+# gstack_contributor: false # true = file field reports when gstack misbehaves
+# skip_eng_review: false    # true = skip eng review gate in /ship (not recommended)
