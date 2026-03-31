@@ -1,10 +1,15 @@
 {
+  "servers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/"
+    }
+  },
   "chat.tools.terminal.autoApprove": {
     "pnpm": true,
     "git add": true,
     "git commit": true,
-    "git push": true,
-    "command": true
+    "git push": true
   },
   "chat.mcp.gallery.enabled": true,
   "explorer.confirmDelete": false,
@@ -31,6 +36,5 @@
   "chatgpt.followUpQueueMode": "queue",
   "[typescriptreact]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
-  },
-  "geminicodeassist.displayInlineContextHint": false
+  }
 }
