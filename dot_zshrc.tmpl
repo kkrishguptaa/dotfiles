@@ -1,5 +1,4 @@
 # Antidote plugin manager
-
 [[ -f ~/.zsh_plugins.txt ]] || touch ~/.zsh_plugins.txt
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -23,10 +22,28 @@ fi
 # Load plugins
 source ~/.zsh_plugins.zsh
 
-# zsh-history-substring-search configuration
-bindkey '^[[A' history-substring-search-up # or '\eOA'
-bindkey '^[[B' history-substring-search-down # or '\eOB'
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=50000
+SAVEHIST=50000
+
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# History substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+# FZF keybindings
+if [ -f "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh" ]; then
+  source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"
+fi
 
 # Docker completion
 zstyle ':completion:*:*:docker:*' option-stacking yes
@@ -35,8 +52,7 @@ zstyle ':completion:*:*:docker-*:*' option-stacking yes
 # config in .profile
 [ -f ~/.profile ] && source ~/.profile
 
-# completions
-
+# Completions
 autoload -U compinit
 zstyle ':completion:*' rehash true
 compinit -C
@@ -44,10 +60,156 @@ compinit -C
 # zsh-z
 zstyle ':completion:*' menu select
 
-# theme
-
+# Theme
 zstyle :prompt:pure:git:stash show yes
 zstyle :prompt:pure:git:fetch only_upstream yes
 
 autoload -U promptinit; promptinit
 prompt pure
+
+# Aliases
+
+# Git shortcuts
+alias g='git'
+alias ga='git add'
+alias gaa='git add --all'
+alias gap='git add --patch'
+alias gau='git add --update'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gbd='git branch -d'
+alias gbD='git branch -D'
+alias gc='git commit -v'
+alias gcm='git commit -m'
+alias gca='git commit -v --amend'
+alias gcan='git commit -v --amend --no-edit'
+alias gco='git checkout'
+alias gcb='git checkout -b'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gf='git fetch'
+alias gl='git log --oneline --graph --decorate'
+alias glog='git log --oneline --graph --decorate --all'
+alias gpull='git pull --rebase'
+alias gp='git push'
+alias gpf='git push --force-with-lease'
+alias gr='git remote'
+alias gra='git remote add'
+alias grv='git remote -v'
+alias gs='git status -sb'
+alias gst='git status'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias gt='git tag'
+alias gtd='git tag -d'
+alias gtl='git tag -l'
+alias gwip='git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify -m "--wip--"'
+alias gunwip='git log -n 1 | grep -q -c "\-\-wip\-\-" && git reset HEAD~1'
+alias gclean='git clean -fd'
+alias greset='git reset --hard'
+alias gundo='git reset --soft HEAD~1'
+
+# Directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+alias ~='cd ~'
+alias -- -='cd -'
+
+# Development tools
+alias serve='python3 -m http.server'
+alias myip='curl -s ifconfig.me'
+alias json='python3 -m json.tool'
+alias ports='lsof -i -P | grep LISTEN'
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+
+# Docker shortcuts
+alias d='docker'
+alias dc='docker compose'
+alias dcb='docker compose build'
+alias dcd='docker compose down'
+alias dcu='docker compose up -d'
+alias dcl='docker compose logs -f'
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias dpsa='docker ps -a --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias di='docker images'
+alias drm='docker rm'
+alias drmi='docker rmi'
+alias dstop='docker stop'
+alias dstart='docker start'
+alias dexec='docker exec -it'
+alias dlogs='docker logs -f'
+alias dprune='docker system prune -af'
+alias dvolumes='docker volume ls'
+alias dnetworks='docker network ls'
+
+# Utilities
+alias cls='clear'
+alias c='clear'
+alias cat='bat'
+alias less='bat'
+alias grep='grep --color=auto'
+alias ls='ls -G'
+alias ll='ls -la'
+alias la='ls -A'
+alias l='ls -CF'
+alias tree='fd --type f --hidden --exclude .git --exclude node_modules | head -100'
+alias h='history'
+alias hg='history | grep'
+alias please='sudo $(fc -ln -1)'
+
+# Functions
+
+# Create directory and cd into it
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# Extract archives
+extract() {
+  if [ -f "$1" ]; then
+    case "$1" in
+      *.tar.bz2)   tar xjf "$1" ;;
+      *.tar.gz)    tar xzf "$1" ;;
+      *.tar.xz)    tar Jxf "$1" ;;
+      *.bz2)       bunzip2 "$1" ;;
+      *.rar)       unrar x "$1" ;;
+      *.gz)        gunzip "$1" ;;
+      *.tar)       tar xf "$1" ;;
+      *.tbz2)      tar xjf "$1" ;;
+      *.tgz)       tar xzf "$1" ;;
+      *.zip)       unzip "$1" ;;
+      *.Z)         uncompress "$1" ;;
+      *.7z)        7z x "$1" ;;
+      *)           echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+# Kill process interactively with FZF
+fkill() {
+  local pid
+  pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+  if [ -n "$pid" ]; then
+    kill -9 "$pid"
+  fi
+}
+
+# Git cleanup - delete merged branches
+git-cleanup() {
+  git fetch --prune
+  git branch --merged | grep -v '\*\|master\|main' | xargs -n 1 git branch -d
+  echo "Cleaned up merged branches"
+}
+
+# Docker cleanup - remove stopped containers and unused images
+docker-cleanup() {
+  docker container prune -f
+  docker image prune -f
+  echo "Docker cleanup complete"
+}

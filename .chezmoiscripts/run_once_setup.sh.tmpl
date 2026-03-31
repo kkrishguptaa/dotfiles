@@ -1,9 +1,9 @@
 #!/bin/bash
 
+# Kill System Preferences to avoid conflicts
 osascript -e 'tell application "System Preferences" to quit'
 
 # Use touch id for sudo
-
 TOUCHID_SUDO_CONFIG="auth       sufficient     pam_tid.so"
 
 sudo cp /etc/pam.d/sudo /etc/pam.d/sudo.bak.$(date +%Y%m%d%H%M%S)
@@ -15,25 +15,250 @@ $TOUCHID_SUDO_CONFIG
 fi
 
 # pmset
-
-sudo pmset -a sleep 0
 sudo pmset -a sleep 0
 sudo pmset -a powernap 1
 sudo pmset -a lidwake 1
 sudo pmset -b halfdim 1
 
 # scutil
-
 sudo scutil --set ComputerName "{{ .apple.computername }}"
 sudo scutil --set HostName "{{ .apple.hostname }}"
 sudo scutil --set LocalHostName "{{ .apple.localhostname }}"
 
 # networksetup
-
 networksetup -setdnsservers Wi-Fi 1.1.1.2 1.0.0.2
 
-# defaults
+###############################################################################
+# Finder
+###############################################################################
 
+# Show hidden files
 defaults write com.apple.finder AppleShowAllFiles -bool true
 
-# TODO: Add more defaults
+# Show file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show status bar
+defaults write com.apple.finder ShowStatusBar -bool true
+
+# Search current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+# Show full POSIX path in window title
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+# Keep folders on top when sorting by name
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+
+# Show item info near icons on desktop and in icon view
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+
+# Enable snap-to-grid for icons on desktop
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+
+# Set grid spacing for desktop icons
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 54" ~/Library/Preferences/com.apple.finder.plist
+
+# Disable warning when changing file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
+
+# Empty Trash securely
+defaults write com.apple.finder EmptyTrashSecurely -bool true
+
+###############################################################################
+# Desktop & Dock
+###############################################################################
+
+# Set Dock icon size
+defaults write com.apple.dock tilesize -int 48
+
+# Minimize windows into application icon
+defaults write com.apple.dock minimize-to-application -bool true
+
+# Enable spring loading for all Dock items
+defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+# Show indicator lights for open applications
+defaults write com.apple.dock show-process-indicators -bool true
+
+# Don't animate opening applications
+defaults write com.apple.dock launchanim -bool false
+
+# Speed up Mission Control animations
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Don't group windows by application
+defaults write com.apple.dock expose-group-by-app -bool false
+
+# Show recent applications in Dock
+defaults write com.apple.dock show-recents -bool false
+
+# Set autohide delay to instant
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0
+
+# Remove default apps from Dock
+defaults write com.apple.dock persistent-apps -array
+
+###############################################################################
+# Screenshots
+###############################################################################
+
+# Save screenshots to Downloads folder
+mkdir -p ~/Downloads
+defaults write com.apple.screencapture location -string "$HOME/Downloads"
+
+# Save screenshots in PNG format
+defaults write com.apple.screencapture type -string "png"
+
+# Disable shadow in screenshots
+defaults write com.apple.screencapture disable-shadow -bool true
+
+###############################################################################
+# Keyboard
+###############################################################################
+
+# Disable press-and-hold for keys in favor of key repeat
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+# Disable auto-correct
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+# Disable auto-capitalization
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+
+# Disable smart quotes
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+# Disable automatic dash substitution
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+# Disable automatic period substitution
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+
+# Disable automatic text replacement
+defaults write NSGlobalDomain NSAutomaticTextReplacementEnabled -bool false
+
+###############################################################################
+# Trackpad
+###############################################################################
+
+# Enable tap to click
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+
+# Enable three finger drag
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
+
+###############################################################################
+# Safari
+###############################################################################
+
+# Show the full URL in the address bar
+defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+
+# Enable Safari's debug menu
+defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+
+# Enable the Develop menu
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
+
+# Add a context menu item for showing the Web Inspector
+defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+
+###############################################################################
+# App Store
+###############################################################################
+
+# Enable automatic updates
+defaults write com.apple.commerce AutoUpdate -bool true
+
+# Check for software updates daily
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+# Download newly available updates in background
+defaults write com.apple.SoftwareUpdate AutomaticDownload -bool true
+
+# Install System data files and security updates
+defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
+
+###############################################################################
+# Activity Monitor
+###############################################################################
+
+# Show all processes
+defaults write com.apple.ActivityMonitor ShowCategory -int 0
+
+# Update frequency to every 2 seconds
+defaults write com.apple.ActivityMonitor UpdatePeriod -int 2
+
+# Show CPU usage in Dock icon
+defaults write com.apple.ActivityMonitor IconType -int 5
+
+###############################################################################
+# TextEdit
+###############################################################################
+
+# Use plain text mode for new documents
+defaults write com.apple.TextEdit RichText -int 0
+
+# Open and save files as UTF-8
+defaults write com.apple.TextEdit PlainTextEncoding -int 4
+defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+###############################################################################
+# Menu Bar
+###############################################################################
+
+# Auto-hide menu bar
+defaults write NSGlobalDomain _HIHideMenuBar -bool false
+
+# Show battery percentage
+defaults write com.apple.menuextra.battery ShowPercent -bool true
+
+# Show 24-hour clock
+defaults write com.apple.menuextra.clock Show24Hour -bool true
+
+# Don't show date in menu bar clock
+defaults write com.apple.menuextra.clock ShowDate -int 0
+
+###############################################################################
+# Miscellaneous
+###############################################################################
+
+# Expand save panel by default
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+
+# Expand print panel by default
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+# Save to disk (not iCloud) by default
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Automatically quit printer app once print jobs complete
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Disable the "Are you sure you want to open this application?" dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Remove duplicates in the "Open With" menu
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+# Disable local Time Machine backups
+sudo tmutil disablelocal 2>/dev/null || true
+
+# Restart affected applications
+for app in "Finder" "Dock" "Safari" "Activity Monitor" "SystemUIServer"; do
+  killall "$app" &> /dev/null
+done
+
+echo "macOS defaults applied successfully!"

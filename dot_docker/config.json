@@ -1,0 +1,7 @@
+{
+  "features": {
+    "buildkit": true
+  },
+  "experimental": true,
+  "credsStore": "osxkeychain"
+}

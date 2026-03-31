@@ -1,19 +1,21 @@
 [user]
 	email = {{ .git.config.user.email }}
 	name = {{ .git.config.user.name }}
-  signingKey = ~/.ssh/id_ed25519
+	signingKey = ~/.ssh/id_ed25519
 
 [core]
-  excludesFile = ~/.gitignore
+	excludesFile = ~/.gitignore
+	editor = vim
+	pager = delta
 
 [color]
-  ui = auto
+	ui = auto
 
 [init]
 	defaultBranch = main
 
 [pull]
-  rebase = true
+	rebase = true
 
 [push]
 	autoSetupRemote = true
@@ -24,23 +26,105 @@
 	all = true
 
 [commit]
-  gpgSign = true
+	gpgSign = true
 
 [tag]
-  gpgSign = true
+	gpgSign = true
 
 [gpg]
-  format = ssh
+	format = ssh
 
 [status]
-  showUntrackedFiles = all
+	showUntrackedFiles = all
+
+[delta]
+	features = decorations
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+	hyperlinks = true
+	hunk-header-style = file
+	file-style = omit
+	file-decoration-style = none
+	minus-style = "syntax #3d1214"
+	minus-non-emph-style = "syntax #3d1214"
+	minus-emph-style = "syntax #671b1f"
+	plus-style = "syntax #123622"
+	plus-non-emph-style = "syntax #123622"
+	plus-emph-style = "syntax #1b6535"
+	hunk-header-decoration-style = "blue box"
+
+[interactive]
+	diffFilter = delta --color-only
+
+[diff]
+	algorithm = histogram
+	renames = copies
+
+[merge]
+	tool = vscode
+	conflictstyle = diff3
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[rerere]
+	enabled = true
+
+[rebase]
+	autoStash = true
 
 [alias]
-  co = checkout
-  br = branch
-  ci = commit
-  st = status
-  lg = log --oneline --graph --decorate --all
-  undo = reset --soft HEAD~1
-  last = log -1 HEAD
-  unstage = reset HEAD --
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	lg = log --oneline --graph --decorate --all
+	undo = reset --soft HEAD~1
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	amend = commit --amend --no-edit
+	amend-edit = commit --amend
+	wip = "!git add -A; git rm $(git ls-files --deleted) 2>/dev/null; git commit --no-verify -m \"--wip--\""
+	unwip = "!git log -n 1 | grep -q -c '\\-\\-wip\\-\\-' && git reset HEAD~1"
+	clean = clean -fd
+	reset-hard = reset --hard
+	log = log --oneline --graph --decorate
+	graph = log --graph --all --decorate --oneline --simplify-by-decoration
+	branches = branch -a
+	remotes = remote -v
+	tags = tag -l
+	push-force = push --force-with-lease
+	push-force-unsafe = push --force
+	fetch-all = fetch --all --prune
+	diff-staged = diff --staged
+	diff-last = diff HEAD~1
+	who = shortlog -sn --
+	changes = diff --stat HEAD@{1}
+	blame = blame -w -M -M
+	recent = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/heads
+	merged = branch --merged
+	not-merged = branch --no-merged
+	delete-merged = !git branch --merged | grep -v '\\*\\|master\\|main' | xargs -n 1 git branch -d
+	ignore = update-index --assume-unchanged
+	unignore = update-index --no-assume-unchanged
+	ignored = ls-files -v | grep ^[a-z]
+	stash-all = stash --include-untracked
+	stash-pop = stash pop
+	stash-list = stash list
+	remote-add = remote add
+	remote-url = remote get-url
+	submodule-init = submodule update --init --recursive
+	submodule-update = submodule update --remote --merge
+	submodule-sync = submodule foreach git pull origin main
+	bisect-start = bisect start
+	bisect-bad = bisect bad
+	bisect-good = bisect good
+	bisect-reset = bisect reset
+	worktree-list = worktree list
+	worktree-add = worktree add
+	worktree-remove = worktree remove
+	recent-branches = !git reflog --format='%gs' | grep 'checkout: moving' | sed 's/.*from //' | awk '!seen[$0]++' | head -10

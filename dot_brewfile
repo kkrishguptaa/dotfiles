@@ -1,31 +1,33 @@
+# System Tools
 brew "chezmoi"
 brew "mas"
 
+# Shell & Terminal
 brew "zsh"
 brew "antidote"
 brew "pure"
-
 brew "fd"
 brew "fzf"
-brew "imagemagick"
+brew "bat"
 
-brew "cloudflared"
-brew "cloudflare-wrangler"
-
+# Development Tools
 brew "git"
 brew "gh"
 brew "delta"
 brew "gnupg"
-
 brew "docker"
-
-brew "vhs"
-
 brew "volta"
 brew "goenv"
 brew "uv"
 brew "rustup"
+brew "vhs"
+brew "imagemagick"
 
+# Cloud & Infrastructure
+brew "cloudflared"
+brew "cloudflare-wrangler"
+
+# Productivity Apps
 cask "shottr"
 cask "imageoptim"
 cask "protonvpn"
@@ -33,48 +35,80 @@ cask "linearmouse"
 cask "raycast"
 cask "upscayl"
 cask "stolendata-mpv"
-
 cask "zoom"
 cask "obs"
-
 cask "notion"
 cask "notion-calendar"
-
-cask "google-chrome"
-cask "chatgpt-atlas"
-
-cask "visual-studio-code"
-cask "zed"
-
-tap "manaflow-ai/cmux"
-cask "cmux"
-
+cask "orbstack"
 cask "figma"
 
-cask "orbstack"
-
+# AI & Assistant Tools
+tap "manaflow-ai/cmux"
+cask "cmux"
 cask "copilot-cli"
 brew "anomalyco/tap/opencode"
 cask "codex"
 cask "coderabbit"
-
 cask "t3-code"
 cask "cursor"
-
 cask "chatgpt"
 cask "claude"
+cask "chatgpt-atlas"
 
+# Editors
+cask "visual-studio-code"
+cask "zed"
+
+# Browsers
+cask "google-chrome"
+
+# Fonts
 cask "font-monaspace"
 
+# VSCode Extensions
+vscode "biomejs.biome"
+vscode "bmewburn.vscode-intelephense-client"
+vscode "bradlc.vscode-tailwindcss"
+vscode "christian-kohler.path-intellisense"
+vscode "databricks.neon-local-connect"
+vscode "ecmel.vscode-html-css"
+vscode "editorconfig.editorconfig"
+vscode "enkia.tokyo-night"
+vscode "github.copilot-chat"
+vscode "github.vscode-github-actions"
+vscode "github.vscode-pull-request-github"
+vscode "golang.go"
+vscode "google.gemini-cli-vscode-ide-companion"
+vscode "google.geminicodeassist"
+vscode "gruntfuggly.todo-tree"
+vscode "mechatroner.rainbow-csv"
+vscode "ms-azuretools.vscode-containers"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-python.debugpy"
+vscode "ms-python.isort"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-python.vscode-python-envs"
+vscode "ms-toolsai.jupyter"
+vscode "ms-toolsai.jupyter-keymap"
+vscode "ms-toolsai.jupyter-renderers"
+vscode "ms-toolsai.vscode-jupyter-cell-tags"
+vscode "ms-toolsai.vscode-jupyter-slideshow"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode.vscode-websearchforcopilot"
+vscode "naumovs.color-highlight"
+vscode "openai.chatgpt"
+vscode "pranaygp.vscode-css-peek"
+vscode "vscode-icons-team.vscode-icons"
+vscode "wakatime.vscode-wakatime"
+
+# MAS Apps
 mas "Shareful", id: 1522267256
 mas "Xcode", id: 497799835
 mas "Gifski", id: 1351639930
-
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Outlook", id: 985367838
-
 mas "DaVinci Resolve", id: 571213070
-
 mas "Telegram", id: 747648890
