@@ -1,1 +1,0 @@
-/Users/krish/GitHub/gstack/.agents/skills/gstack-upgrade/SKILL.md

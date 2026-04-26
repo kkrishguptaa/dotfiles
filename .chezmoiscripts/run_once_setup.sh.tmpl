@@ -28,237 +28,127 @@ sudo scutil --set LocalHostName "{{ .apple.localhostname }}"
 # networksetup
 networksetup -setdnsservers Wi-Fi 1.1.1.2 1.0.0.2
 
-###############################################################################
-# Finder
-###############################################################################
+# Dock
 
-# Show hidden files
-defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.dock "orientation" -string "right"
+defaults write com.apple.dock "tilesize" -int "48"
+defaults write com.apple.dock "autohide" -bool "true"
+defaults write com.apple.dock "autohide-time-modifier" -float "0.25"
+defaults write com.apple.dock "autohide-delay" -float "0.2"
+defaults write com.apple.dock "show-recents" -bool "false"
+defaults write com.apple.dock "mineffect" -string "genie"
+defaults write com.apple.dock "static-only" -bool "false"
+defaults write com.apple.dock "scroll-to-open" -bool "true"
+defaults write com.apple.dock "enable-spring-load-actions-on-all-items" -bool "true"
 
-# Show file extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Show path bar
-defaults write com.apple.finder ShowPathbar -bool true
-
-# Show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
-
-# Search current folder by default
-defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
-
-# Show full POSIX path in window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
-
-# Keep folders on top when sorting by name
-defaults write com.apple.finder _FXSortFoldersFirst -bool true
-
-# Show item info near icons on desktop and in icon view
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
-
-# Enable snap-to-grid for icons on desktop
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
-# Set grid spacing for desktop icons
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 54" ~/Library/Preferences/com.apple.finder.plist
-
-# Disable warning when changing file extension
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Disable the warning before emptying the Trash
-defaults write com.apple.finder WarnOnEmptyTrash -bool false
-
-# Empty Trash securely
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-
-###############################################################################
-# Desktop & Dock
-###############################################################################
-
-# Set Dock icon size
-defaults write com.apple.dock tilesize -int 48
-
-# Minimize windows into application icon
-defaults write com.apple.dock minimize-to-application -bool true
-
-# Enable spring loading for all Dock items
-defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
-
-# Show indicator lights for open applications
-defaults write com.apple.dock show-process-indicators -bool true
-
-# Don't animate opening applications
-defaults write com.apple.dock launchanim -bool false
-
-# Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
-
-# Don't group windows by application
-defaults write com.apple.dock expose-group-by-app -bool false
-
-# Show recent applications in Dock
-defaults write com.apple.dock show-recents -bool false
-
-# Set autohide delay to instant
-defaults write com.apple.dock autohide-delay -float 0
-defaults write com.apple.dock autohide-time-modifier -float 0
-
-# Remove default apps from Dock
-defaults write com.apple.dock persistent-apps -array
-
-###############################################################################
 # Screenshots
-###############################################################################
 
-# Save screenshots to Downloads folder
-mkdir -p ~/Downloads
-defaults write com.apple.screencapture location -string "$HOME/Downloads"
+defaults write com.apple.screencapture "disable-shadow" -bool "false"
+defaults write com.apple.screencapture "include-date" -bool "true"
+defaults write com.apple.screencapture "location" -string "~/Downloads"
+defaults write com.apple.screencapture "show-thumbnail" -bool "true"
+defaults write com.apple.screencapture "type" -string "png"
 
-# Save screenshots in PNG format
-defaults write com.apple.screencapture type -string "png"
-
-# Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
-
-###############################################################################
-# Keyboard
-###############################################################################
-
-# Disable press-and-hold for keys in favor of key repeat
-defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
-
-# Disable auto-correct
-defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
-
-# Disable auto-capitalization
-defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
-
-# Disable smart quotes
-defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
-
-# Disable automatic dash substitution
-defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
-
-# Disable automatic period substitution
-defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
-
-# Disable automatic text replacement
-defaults write NSGlobalDomain NSAutomaticTextReplacementEnabled -bool false
-
-###############################################################################
-# Trackpad
-###############################################################################
-
-# Enable tap to click
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
-
-# Enable three finger drag
-defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
-defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerDrag -bool true
-
-###############################################################################
 # Safari
-###############################################################################
 
-# Show the full URL in the address bar
-defaults write com.apple.Safari ShowFullURLInSmartSearchField -bool true
+defaults write com.apple.finder "QuitMenuItem" -bool "false"
+defaults write NSGlobalDomain "AppleShowAllExtensions" -bool "false"
+defaults write com.apple.finder "AppleShowAllFiles" -bool "false"
+defaults write com.apple.finder "ShowPathbar" -bool "true"
+defaults write com.apple.finder "FXPreferredViewStyle" -string "clmv"
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool "true"
+defaults write com.apple.finder "FinderSpawnTab" -bool "false"
+defaults write com.apple.finder "FXDefaultSearchScope" -string "SCcf"
+defaults write com.apple.finder "FXRemoveOldTrashItems" -bool "true"
+defaults write com.apple.finder "FXEnableExtensionChangeWarning" -bool "false"
+defaults write NSGlobalDomain "NSDocumentSaveNewDocumentsToCloud" -bool "false"
+defaults write NSGlobalDomain "NSToolbarTitleViewRolloverDelay" -float "0.5"
+defaults write NSGlobalDomain "NSTableViewDefaultSizeMode" -int "1"
+defaults write com.apple.finder "_FXEnableColumnAutoSizing" -bool "true"
+defaults write com.apple.finder "ShowStatusBar" -bool "true"
 
-# Enable Safari's debug menu
-defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
+# Desktop
 
-# Enable the Develop menu
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
+defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool "true"
+defaults write com.apple.finder "CreateDesktop" -bool "true"
+defaults write com.apple.finder "ShowHardDrivesOnDesktop" -bool "false"
+defaults write com.apple.finder "ShowExternalHardDrivesOnDesktop" -bool "false"
+defaults write com.apple.finder "ShowRemovableMediaOnDesktop" -bool "false"
+defaults write com.apple.finder "ShowMountedServersOnDesktop" -bool "false"
 
-# Add a context menu item for showing the Web Inspector
-defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
+# Menubar
 
-###############################################################################
-# App Store
-###############################################################################
+defaults write com.apple.menuextra.clock "FlashDateSeparators" -bool "false"
+defaults write com.apple.menuextra.clock "DateFormat" -string "\"EEE d MMM HH:mm\""
 
-# Enable automatic updates
-defaults write com.apple.commerce AutoUpdate -bool true
+# Mouse & Trackpad
 
-# Check for software updates daily
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+defaults write NSGlobalDomain com.apple.mouse.linear -bool "false"
+defaults write NSGlobalDomain com.apple.mouse.scaling -float "1"
+defaults write com.apple.Terminal "FocusFollowsMouse" -bool "false"
+defaults write com.apple.AppleMultitouchTrackpad "FirstClickThreshold" -int "1"
+defaults write com.apple.AppleMultitouchTrackpad "DragLock" -bool "false"
+defaults write com.apple.AppleMultitouchTrackpad "Dragging" -bool "true"
+defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool "false"
 
-# Download newly available updates in background
-defaults write com.apple.SoftwareUpdate AutomaticDownload -bool true
+# Keyboard
 
-# Install System data files and security updates
-defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -bool true
+defaults write NSGlobalDomain "ApplePressAndHoldEnabled" -bool "true"
+defaults write com.apple.HIToolbox AppleFnUsageType -int "0"
+defaults write NSGlobalDomain com.apple.keyboard.fnState -bool false
+defaults write NSGlobalDomain AppleKeyboardUIMode -int "2"
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool "true"
 
-###############################################################################
-# Activity Monitor
-###############################################################################
+# Mission Control
 
-# Show all processes
-defaults write com.apple.ActivityMonitor ShowCategory -int 0
+defaults write com.apple.dock "mru-spaces" -bool "false"
+defaults write com.apple.dock "expose-group-apps" -bool "true"
+defaults write NSGlobalDomain "AppleSpacesSwitchOnActivate" -bool "true"
+defaults write com.apple.spaces "spans-displays" -bool "true"
 
-# Update frequency to every 2 seconds
-defaults write com.apple.ActivityMonitor UpdatePeriod -int 2
 
-# Show CPU usage in Dock icon
-defaults write com.apple.ActivityMonitor IconType -int 5
-
-###############################################################################
-# TextEdit
-###############################################################################
-
-# Use plain text mode for new documents
-defaults write com.apple.TextEdit RichText -int 0
-
-# Open and save files as UTF-8
-defaults write com.apple.TextEdit PlainTextEncoding -int 4
-defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-###############################################################################
-# Menu Bar
-###############################################################################
-
-# Auto-hide menu bar
-defaults write NSGlobalDomain _HIHideMenuBar -bool false
-
-# Show battery percentage
-defaults write com.apple.menuextra.battery ShowPercent -bool true
-
-# Show 24-hour clock
-defaults write com.apple.menuextra.clock Show24Hour -bool true
-
-# Don't show date in menu bar clock
-defaults write com.apple.menuextra.clock ShowDate -int 0
-
-###############################################################################
 # Miscellaneous
-###############################################################################
 
-# Expand save panel by default
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write com.apple.appleseed.FeedbackAssistant "Autogather" -bool "false"
 
-# Expand print panel by default
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
-defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+defaults write com.apple.dt.Xcode "ShowBuildOperationDuration" -bool "true"
+defaults write com.apple.iphonesimulator "ScreenShotSaveLocation" -string "~/Downloads"
 
-# Save to disk (not iCloud) by default
-defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+defaults write com.apple.TextEdit "RichText" -bool "false"
+defaults write com.apple.TextEdit "SmartQuotes" -bool "false"
 
-# Automatically quit printer app once print jobs complete
-defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+defaults write com.apple.TimeMachine "DoNotOfferNewDisksForBackup" -bool "false"
 
-# Disable the "Are you sure you want to open this application?" dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
+defaults write com.apple.ActivityMonitor "UpdatePeriod" -int "5"
+defaults write com.apple.ActivityMonitor "IconType" -int "0"
 
-# Remove duplicates in the "Open With" menu
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+defaults write com.apple.CloudSubscriptionFeatures.optIn "545129924" -bool "true"
+defaults write com.apple.helpviewer "DevMode" -bool "false"
+
+defaults write com.apple.Music "userWantsPlaybackNotifications" -bool "false"
+
+defaults write com.apple.LaunchServices "LSQuarantine" -bool "false"
+
+defaults write NSGlobalDomain "NSCloseAlwaysConfirmsChanges" -bool "true"
+
+defaults write NSGlobalDomain "NSQuitAlwaysKeepsWindow" -bool "false"
 
 # Disable local Time Machine backups
 sudo tmutil disablelocal 2>/dev/null || true
 
-# Restart affected applications
-for app in "Finder" "Dock" "Safari" "Activity Monitor" "SystemUIServer"; do
-  killall "$app" &> /dev/null
-done
+killall Finder
+killall Dock
+killall Safari
 
-echo "macOS defaults applied successfully!"
+killall TimeMachine
+killall Activity Monitor
+killall SystemUIServer
+
+killall TextEdit
+killall Xcode
+
+killall Messages
+killall Music
+
+echo "macOS settings changed"

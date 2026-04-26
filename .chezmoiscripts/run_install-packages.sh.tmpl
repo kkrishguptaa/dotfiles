@@ -2,8 +2,8 @@
 
 {{ if eq .chezmoi.os "darwin" -}}
 
+brew bundle cleanup --verbose --force --file={{ .chezmoi.sourceDir }}/dot_brewfile
 brew bundle install --verbose --file={{ .chezmoi.sourceDir }}/dot_brewfile
-brew bundle cleanup --verbose --file={{ .chezmoi.sourceDir }}/dot_brewfile
 
 {{ else if eq .chezmoi.os "linux" -}}
 

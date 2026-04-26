@@ -1,1 +1,0 @@
-/Users/krish/GitHub/gstack/review/checklist.md

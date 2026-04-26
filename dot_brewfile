@@ -1,4 +1,4 @@
-# System Tools
+# Core to the dotfiles.
 brew "chezmoi"
 brew "mas"
 
@@ -10,105 +10,121 @@ brew "fd"
 brew "fzf"
 brew "bat"
 
+cask "warp"
+
 # Development Tools
 brew "git"
 brew "gh"
 brew "delta"
 brew "gnupg"
-brew "docker"
-brew "volta"
+
+# Programming engines
+
+brew "volta" # node version manager.
 brew "goenv"
-brew "uv"
+brew "uv" # python version manager.
 brew "rustup"
-brew "vhs"
+
+# containers
+
+brew "docker"
+cask "orbstack"
+
+# Utilities
+
 brew "imagemagick"
+brew "vhs" # amazing tool for recording terminal sessions.
+brew "cloudflare-wrangler" # sucks but it is what it is.
+brew "mole" # disk cleanup tool.
+brew "tailscale"
 
-# Cloud & Infrastructure
-brew "cloudflared"
-brew "cloudflare-wrangler"
-
-# Productivity Apps
 cask "shottr"
 cask "imageoptim"
-cask "protonvpn"
-cask "linearmouse"
-cask "raycast"
-cask "upscayl"
-cask "stolendata-mpv"
-cask "zoom"
-cask "obs"
-cask "notion"
-cask "notion-calendar"
-cask "orbstack"
-cask "figma"
+cask "alt-tab"
+mas "Shareful", id: 1522267256
+mas "Gifski", id: 1351639930
 
-# AI & Assistant Tools
-tap "manaflow-ai/cmux"
-cask "cmux"
-cask "copilot-cli"
-brew "anomalyco/tap/opencode"
-cask "codex"
-cask "coderabbit"
-cask "t3-code"
+# Basic Apps everybody has.
+
+cask "raycast"
+cask "zoom"
+
+cask "helium-browser" # development daily drive. main is safari.
+cask "google-chrome" # sometimes chrome is needed for when things break.
+
+cask "notion" # hope to replace with something else.
+cask "notion-calendar" # hope to replace with something else.
+
+# Devtools
+
 cask "cursor"
+cask "zed"
+brew "neovim"
+
+cask "gitkraken"
+
+brew "wakatime-cli"
+cask "wakatime"
+
+# Vibecoding Tools
+
+cask "codex"
+cask "codex-app"
+
+cask "copilot-cli"
+cask "cursor-cli"
+brew "kimi-cli"
+brew "qwen-code"
+brew "mistral-vibe"
+
+cask "t3-code"
+
+brew "opencode"
+cask "opencode-desktop"
+
+# not checked out coderabbit, mistral vibe, qwen code... anything else?
+# didn't like ampcode
+# gemini sucks. don't even bother.
+# uninstalled cc after the whole thing with usage limit drops.
+# current workflow is simply to just use cursor...
+# if I'm on the terminal, I'd rather use opencode for access to all the models.
+# the cli tools for things like codex are simply to provide harness for t3-code or something else.
+
+# Utilities for AI Agents
+
+brew "agent-browser"
+
+# AI Chat/General Purpose Tools
+
 cask "chatgpt"
 cask "claude"
-cask "chatgpt-atlas"
 
-# Editors
-cask "visual-studio-code"
-cask "zed"
+brew "openclaw-cli"
+cask "openclaw"
 
-# Browsers
-cask "google-chrome"
+# Design & Video Editing
 
-# Fonts
-cask "font-monaspace"
+cask "figma"
 
-# VSCode Extensions
-vscode "biomejs.biome"
-vscode "bmewburn.vscode-intelephense-client"
-vscode "bradlc.vscode-tailwindcss"
-vscode "christian-kohler.path-intellisense"
-vscode "databricks.neon-local-connect"
-vscode "ecmel.vscode-html-css"
-vscode "editorconfig.editorconfig"
-vscode "enkia.tokyo-night"
-vscode "github.copilot-chat"
-vscode "github.vscode-github-actions"
-vscode "github.vscode-pull-request-github"
-vscode "golang.go"
-vscode "google.gemini-cli-vscode-ide-companion"
-vscode "google.geminicodeassist"
-vscode "gruntfuggly.todo-tree"
-vscode "mechatroner.rainbow-csv"
-vscode "ms-azuretools.vscode-containers"
-vscode "ms-azuretools.vscode-docker"
-vscode "ms-python.debugpy"
-vscode "ms-python.isort"
-vscode "ms-python.python"
-vscode "ms-python.vscode-pylance"
-vscode "ms-python.vscode-python-envs"
-vscode "ms-toolsai.jupyter"
-vscode "ms-toolsai.jupyter-keymap"
-vscode "ms-toolsai.jupyter-renderers"
-vscode "ms-toolsai.vscode-jupyter-cell-tags"
-vscode "ms-toolsai.vscode-jupyter-slideshow"
-vscode "ms-vscode-remote.remote-containers"
-vscode "ms-vscode.vscode-websearchforcopilot"
-vscode "naumovs.color-highlight"
-vscode "openai.chatgpt"
-vscode "pranaygp.vscode-css-peek"
-vscode "vscode-icons-team.vscode-icons"
-vscode "wakatime.vscode-wakatime"
+cask "canva"
+cask "affinity" # wow canva makes good acquisitions.
+cask "cavalry" # wow canva makes good acquisitions.
 
-# MAS Apps
-mas "Shareful", id: 1522267256
-mas "Xcode", id: 497799835
-mas "Gifski", id: 1351639930
+cask "obs"
+
+mas "DaVinci Resolve", id: 571213070
+
+# Office
+
 mas "Microsoft Excel", id: 462058435
 mas "Microsoft PowerPoint", id: 462062816
 mas "Microsoft Word", id: 462054704
 mas "Microsoft Outlook", id: 985367838
-mas "DaVinci Resolve", id: 571213070
+
+# Messaging
+
+cask "whatsapp"
+cask "signal"
+cask "discord"
+cask "slack"
 mas "Telegram", id: 747648890

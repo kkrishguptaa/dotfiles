@@ -1,5 +1,11 @@
 zsh-users/zsh-completions path:src kind:fpath
 zsh-users/zsh-history-substring-search
+zdharma-continuum/fast-syntax-highlighting
 
 agkozak/zsh-z
+
+getantidote/use-omz
+ohmyzsh/ohmyzsh path:lib
+ohmyzsh/ohmyzsh path:plugins/git
+
 MichaelAquilina/zsh-you-should-use
