@@ -6,13 +6,11 @@ brew "mas"
 brew "zsh"
 brew "antidote"
 brew "pure"
-
 brew "fd"
 brew "fzf"
+brew "bat"
 
 cask "warp"
-
-# Development Tools
 
 brew "git"
 brew "gh"
