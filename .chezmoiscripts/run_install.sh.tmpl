@@ -1,0 +1,14 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+brew bundle install --file="{{ .chezmoi.sourceDir }}/dot_brewfile"
+brew bundle cleanup --force --file="{{ .chezmoi.sourceDir }}/dot_brewfile"
+
+{{ else if eq .chezmoi.os "linux" -}}
+
+echo "Linux install flow is not implemented yet." >&2
+exit 1
+
+{{ end -}}
+{{ end -}}
