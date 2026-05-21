@@ -7,6 +7,8 @@ brew bundle cleanup --force --file="{{ .chezmoi.sourceDir }}/dot_brewfile"
 
 {{ else if eq .chezmoi.os "linux" -}}
 
-# TODO: Add Linux installation steps
+echo "Linux install flow is not implemented yet." >&2
+exit 1
 
+{{ end -}}
 {{ end -}}
