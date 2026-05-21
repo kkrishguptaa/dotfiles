@@ -1,5 +1,5 @@
 apple:
-  computername: "Krish's MacBook"
+  computername: "Krish's M1"
   hostname: "krishg"
   localhostname: "krishg"
 
@@ -7,7 +7,7 @@ git:
   config:
     user:
       name: "Krish Gupta"
-      email: "krish@krishg.com"
+      email: "135469703+kkrishguptaa@users.noreply.github.com"
 
 github:
   username: kkrishguptaa

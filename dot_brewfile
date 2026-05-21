@@ -6,24 +6,26 @@ brew "mas"
 brew "zsh"
 brew "antidote"
 brew "pure"
+
 brew "fd"
 brew "fzf"
-brew "bat"
 
 cask "warp"
 
 # Development Tools
+
 brew "git"
 brew "gh"
-brew "delta"
-brew "gnupg"
 
 # Programming engines
 
-brew "volta" # node version manager.
-brew "goenv"
-brew "uv" # python version manager.
+brew "node"
+brew "golang"
+brew "uv"
+
 brew "rustup"
+
+cask "flutter"
 
 # containers
 
@@ -34,9 +36,8 @@ cask "orbstack"
 
 brew "imagemagick"
 brew "vhs" # amazing tool for recording terminal sessions.
-brew "cloudflare-wrangler" # sucks but it is what it is.
+brew "cloudflare-wrangler"
 brew "mole" # disk cleanup tool.
-brew "tailscale"
 
 cask "shottr"
 cask "imageoptim"
@@ -50,81 +51,44 @@ cask "raycast"
 cask "zoom"
 
 cask "helium-browser" # development daily drive. main is safari.
-cask "google-chrome" # sometimes chrome is needed for when things break.
-
-cask "notion" # hope to replace with something else.
-cask "notion-calendar" # hope to replace with something else.
 
 # Devtools
 
-cask "cursor"
+cask "visual-studio-code"
 cask "zed"
 brew "neovim"
-
-cask "gitkraken"
-
-brew "wakatime-cli"
-cask "wakatime"
 
 # Vibecoding Tools
 
 cask "codex"
 cask "codex-app"
 
-cask "copilot-cli"
-cask "cursor-cli"
-brew "kimi-cli"
-brew "qwen-code"
-brew "mistral-vibe"
+cask "cursor"
+
+cask "claude"
+cask "claude-code"
+
+brew "opencode"
 
 cask "t3-code"
 
-brew "opencode"
-cask "opencode-desktop"
+cask "coderabbit"
 
-# not checked out coderabbit, mistral vibe, qwen code... anything else?
-# didn't like ampcode
-# gemini sucks. don't even bother.
-# uninstalled cc after the whole thing with usage limit drops.
-# current workflow is simply to just use cursor...
-# if I'm on the terminal, I'd rather use opencode for access to all the models.
-# the cli tools for things like codex are simply to provide harness for t3-code or something else.
-
-# Utilities for AI Agents
-
-brew "agent-browser"
-
-# AI Chat/General Purpose Tools
-
-cask "chatgpt"
-cask "claude"
-
-brew "openclaw-cli"
-cask "openclaw"
+brew "hermes-agent"
 
 # Design & Video Editing
 
 cask "figma"
 
 cask "canva"
-cask "affinity" # wow canva makes good acquisitions.
-cask "cavalry" # wow canva makes good acquisitions.
+cask "affinity"
+cask "cavalry"
 
 cask "obs"
-
-mas "DaVinci Resolve", id: 571213070
-
-# Office
-
-mas "Microsoft Excel", id: 462058435
-mas "Microsoft PowerPoint", id: 462062816
-mas "Microsoft Word", id: 462054704
-mas "Microsoft Outlook", id: 985367838
 
 # Messaging
 
 cask "whatsapp"
-cask "signal"
 cask "discord"
 cask "slack"
-mas "Telegram", id: 747648890
+cask "telegram"

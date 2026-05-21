@@ -1,7 +1,8 @@
 {
-  "features": {
-    "buildkit": true
-  },
-  "experimental": true,
-  "credsStore": "osxkeychain"
+	"auths": {},
+	"credsStore": "osxkeychain",
+	"currentContext": "orbstack",
+	"features": {
+		"buildkit": ""
+	}
 }
