@@ -1,8 +1,0 @@
-{
-	"auths": {},
-	"credsStore": "osxkeychain",
-	"currentContext": "orbstack",
-	"features": {
-		"buildkit": ""
-	}
-}
