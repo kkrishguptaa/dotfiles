@@ -1,19 +1,20 @@
 # Core to the dotfiles.
 brew "chezmoi"
-brew "mas"
 
 # Shell & Terminal
 brew "zsh"
 brew "antidote"
 brew "pure"
-brew "fd"
-brew "fzf"
-brew "bat"
 
-cask "warp"
+cask "ghostty"
 
 brew "git"
 brew "gh"
+
+# Productivity
+
+cask "notion-calendar"
+cask "microsoft-office"
 
 # Programming engines
 
@@ -23,36 +24,29 @@ brew "uv"
 
 brew "rustup"
 
-cask "flutter"
-
 # containers
 
 brew "docker"
-cask "orbstack"
+brew "colima"
 
 # Utilities
 
 brew "imagemagick"
-brew "vhs" # amazing tool for recording terminal sessions.
-brew "cloudflare-wrangler"
 brew "mole" # disk cleanup tool.
 
 cask "shottr"
 cask "imageoptim"
-cask "alt-tab"
-mas "Shareful", id: 1522267256
-mas "Gifski", id: 1351639930
 
 # Basic Apps everybody has.
 
 cask "raycast"
 cask "zoom"
-
-cask "helium-browser" # development daily drive. main is safari.
+cask "grammarly-desktop"
+cask "spotify"
+cask "aside" # browser
 
 # Devtools
 
-cask "visual-studio-code"
 cask "zed"
 brew "neovim"
 
@@ -62,11 +56,15 @@ cask "codex"
 cask "codex-app"
 
 cask "cursor"
+cask "cursor-cli"
+cask "grok-build"
 
 cask "claude"
 cask "claude-code"
 
 brew "opencode"
+
+cask "copilot-cli"
 
 cask "t3-code"
 
@@ -77,16 +75,4 @@ brew "hermes-agent"
 # Design & Video Editing
 
 cask "figma"
-
-cask "canva"
-cask "affinity"
-cask "cavalry"
-
-cask "obs"
-
-# Messaging
-
-cask "whatsapp"
-cask "discord"
-cask "slack"
-cask "telegram"
+cask "cap"
